@@ -29,4 +29,3 @@ Simply include the Vancrypt script in your project or import it as a module.
     console.log('IV:', result.iv);
   });
 </script>
-```html
