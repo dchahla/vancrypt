@@ -15,7 +15,7 @@ Simply include the Vancrypt script in your project or import it as a module.
 
 ### ES6+
 ```js
-import { generateUUID, generateEncKeyAndIv, encrypt } from 'https://raw.githubusercontent.com/dchahla/vancrypt/main/bin/main';
+import { generateUUID, generateEncKeyAndIv, encrypt } from './vancrypt/main/bin/main';
 ```
 
 
