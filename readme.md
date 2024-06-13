@@ -1,4 +1,4 @@
-# Vancrypt: Browser-Side Vanilla JavaScript Encryption 
+# Vancrypt: VANilla (js) EnCRYPTion in the Browser
 
 ## Description
 Vancrypt is a lightweight encryption library for client-side JavaScript applications. It uses the Web Crypto API to provide secure encryption without relying on external dependencies. This ensures that tokens are encrypted in the browser before being sent to the server, enhancing security by making it harder to inspect data via network tools. Vancrypt is compatible with ES5, ES6, and TypeScript, making it a versatile choice for any project.
