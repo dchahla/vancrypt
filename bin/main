@@ -1,0 +1,52 @@
+;(function (global) {
+  function generateUUID () {
+    const array = new Uint8Array(16)
+    crypto.getRandomValues(array)
+    array[6] = (array[6] & 0x0f) | 0x40
+    array[8] = (array[8] & 0x3f) | 0x80
+    return [...array]
+      .map((byte, i) => {
+        const hex = byte.toString(16).padStart(2, '0')
+        switch (i) {
+          case 4:
+          case 6:
+          case 8:
+          case 10:
+            return '-' + hex
+          default:
+            return hex
+        }
+      })
+      .join('')
+  }
+
+  function generateEncKeyAndIv () {
+    const keyUUID = generateUUID().replace(/-/g, '')
+    const ivUUID = generateUUID().replace(/-/g, '')
+    const ENC_KEY = new TextEncoder().encode(keyUUID).slice(0, 32)
+    const IV = new TextEncoder().encode(ivUUID).slice(0, 16)
+    return { ENC_KEY, IV }
+  }
+
+  async function encrypt (token, key, iv) {
+    const encoder = new TextEncoder()
+    const data = encoder.encode(token)
+    const encrypted = await crypto.subtle.encrypt(
+      { name: 'AES-CBC', iv },
+      await crypto.subtle.importKey('raw', key, { name: 'AES-CBC' }, false, [
+        'encrypt'
+      ]),
+      data
+    )
+    return {
+      encrypted: btoa(String.fromCharCode(...new Uint8Array(encrypted))),
+      iv: btoa(String.fromCharCode(...iv))
+    }
+  }
+
+  global.Vancrypt = {
+    generateUUID,
+    generateEncKeyAndIv,
+    encrypt
+  }
+})(typeof window !== 'undefined' ? window : global)
