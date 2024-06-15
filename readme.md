@@ -23,13 +23,13 @@ import { generateUUID, generateEncKeyAndIv, encrypt } from './vancrypt/bin/main'
 ```html
 <script src="https://raw.githubusercontent.com/dchahla/vancrypt/bin/main"></script>
 <script>
-  var Vancrypt = window.Vancrypt;
+  const Vancrypt = window.Vancrypt;
 
-  var keys = Vancrypt.generateEncKeyAndIv();
+  const keys = Vancrypt.generateEncKeyAndIv();
   console.log('ENC_KEY:', keys.ENC_KEY);
   console.log('IV:', keys.IV);
 
-  var data = 'your-data-here';
+  const data = 'your-data-here';
   Vancrypt.encrypt(data, keys.ENC_KEY, keys.IV).then(function(result) {
     console.log('Encrypted Token:', result.encrypted);
     console.log('IV:', result.iv);
