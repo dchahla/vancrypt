@@ -1,7 +1,7 @@
 # vancrypt: VAN-illaJS En-CRYPT-ion - in the Browser! 🔋
 
 ## Description
-Vancrypt is a lightweight encryption library for client-side JavaScript applications. It uses the Web Crypto API to provide secure encryption without relying on external dependencies. This ensures that data is encrypted in the browser before being sent, enhancing security by adding another layer on top of SSL, making it twice as hard to brute force sensitive data.
+Vancrypt is a lightweight encryption library for client-side JavaScript applications. It uses the Web Crypto API to provide secure encryption without relying on external dependencies. This ensures that data is encrypted in the browser before being sent, enhancing security by adding another layer on top of SSL, making it twice as hard to brute force sensitive data. Plus, it sounds like something Dracula would build.
 
 ## Features
 - **Secure Encryption**: Uses the Web Crypto API for robust encryption.
